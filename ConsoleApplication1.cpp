@@ -1,4 +1,4 @@
-#include <algorithm>
+﻿#include <algorithm>
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -48,9 +48,7 @@ public:
     template<typename Iterator>
     DomainChecker(Iterator first, Iterator last)
         : forbidden_domains_(first, last) {
-        sort(forbidden_domains_.begin(), forbidden_domains_.end(), [](const Domain& lhs, const Domain& rhs) {
-            return lhs.GetDomain() < rhs.GetDomain();
-            });
+        sort(forbidden_domains_.begin(), forbidden_domains_.end());
         const auto it = std::unique(forbidden_domains_.begin(), forbidden_domains_.end(), [](const Domain& lhs, const Domain& rhs) {
             return rhs.IsSubdomain(lhs);
             });
